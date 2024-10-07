@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-image: url('https://tse4.mm.bing.net/th?id=OIP.GbMboU-krQvdIrfKgWpzXgHaFj&pid=Api&P=0&h=180');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            width: 450px;
+            padding: 1.5rem;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.9);
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        input {
+            color: inherit;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #757575;
+            padding-left: 1.5rem;
+            font-size: 15px;
+        }
+
+        .input-group {
+            padding: 1% 0;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            color: black;
+        }
+
+        input:focus {
+            background-color: transparent;
+            outline: transparent;
+            border-bottom: 2px solid hsl(327, 90%, 28%);
+        }
+
+        input::placeholder {
+            color: transparent;
+        }
+
+        label {
+            color: #757575;
+            position: relative;
+            left: 1.2em;
+            top: -1.3em;
+            cursor: auto;
+            transition: 0.3s ease all;
+        }
+
+        input:focus~label, input:not(:placeholder-shown)~label {
+            top: -3em;
+            color: hsl(327, 90%, 28%);
+            font-size: 15px;
+        }
+
+        .btn {
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            width: 100%;
+            background: rgb(125, 125, 235);
+            color: white;
+            cursor: pointer;
+            transition: 0.9s;
+        }
+
+        .btn:hover {
+            background: #07001f;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 4rem;
+            margin-top: 0.9rem;
+            font-weight: bold;
+        }
+
+        button {
+            color: rgb(125, 125, 235);
+            border: none;
+            background-color: transparent;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        button:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+
+        .forgot-password, .otp-verification, .password-reset {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .forgot-password form, .otp-verification form, .password-reset form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .forgot-password .input-group, .otp-verification .input-group, .password-reset .input-group {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Registration Form -->
+    <div class="container" id="signup" style="display:none;">
+        <h1 class="form-title">Register</h1>
+        <form id="registerForm">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="fName" id="fName" placeholder="First Name" required>
+                <label for="fName">First Name</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="lName" id="lName" placeholder="Last Name" required>
+                <label for="lName">Last Name</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" name="contact" id="contact" placeholder="Contact Number">
+                <label for="contact">Contact Number</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-calendar"></i>
+                <input type="text" name="year" id="year" placeholder="Year of Study">
+                <label for="year">Year of Study</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-book"></i>
+                <input type="text" name="course" id="course" placeholder="Course">
+                <label for="course">Course</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-stream"></i>
+                <input type="text" name="stream" id="stream" placeholder="Stream">
+                <label for="stream">Stream</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <label for="password">Password</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-enter Password" required>
+                <label for="confirmPassword">Re-enter Password</label>
+            </div>
+            <a href="student_home_page.html"><button type="button" id="Sign Up" class="btn">Sign Up</button></a>
+        </form>
+        <div class="links">
+            <p>Already Have Account?</p>
+            <button id="signInButton">Sign In</button>
+        </div>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="container" id="signIn">
+        <h1 class="form-title">Sign In</h1>
+        <form id="signInForm">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="signInEmail" placeholder="Email" required>
+                <label for="signInEmail">Email</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="signInPassword" placeholder="Password" required>
+                <label for="signInPassword">Password</label>
+            </div>
+            <a href="student_home_page.html"><button type="button" id="Sign In" class="btn">Sign In</button></a>
+            <button type="button" id="forgotPasswordButton" class="btn">Forgot Password</button>
+        </form>
+        <div class="links">
+            <p>Don't have an account yet?</p>
+            <button id="signUpButton">Sign Up</button>
+        </div>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="container forgot-password" id="forgotPassword">
+        <h1 class="form-title">Forgot Password</h1>
+        <form id="forgotPasswordForm">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="forgotEmail" id="forgotEmail" placeholder="Enter your email" required>
+                <label for="forgotEmail">Email</label>
+            </div>
+            <input type="submit" class="btn" value="Send OTP">
+        </form>
+    </div>
+
+    <!-- OTP Verification Form -->
+    <div class="container otp-verification" id="otpVerification">
+        <h1 class="form-title">Verify OTP</h1>
+        <form id="otpForm">
+            <div class="input-group">
+                <i class="fas fa-key"></i>
+                <input type="text" name="otp" id="otp" placeholder="Enter OTP" required>
+                <label for="otp">OTP</label>
+            </div>
+            <input type="submit" class="btn" value="Verify OTP">
+        </form>
+    </div>
+
+    <!-- Password Reset Form -->
+    <div class="container password-reset" id="passwordReset">
+        <h1 class="form-title">Reset Password</h1>
+        <form id="resetPasswordForm">
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="newPassword" id="newPassword" placeholder="New Password" required>
+                <label for="newPassword">New Password</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirmNewPassword" id="confirmNewPassword" placeholder="Re-enter New Password" required>
+                <label for="confirmNewPassword">Re-enter New Password</label>
+            </div>
+            <input type="submit" class="btn" value="Reset Password">
+        </form>
+    </div>
+
+    <script>
+        const signUpButton = document.getElementById('signUpButton');
+        const signInButton = document.getElementById('signInButton');
+        const forgotPasswordButton = document.getElementById('forgotPasswordButton');
+
+        const signInForm = document.getElementById('signIn');
+        const signUpForm = document.getElementById('signup');
+        const forgotPasswordForm = document.getElementById('forgotPassword');
+        const otpVerificationForm = document.getElementById('otpVerification');
+        const passwordResetForm = document.getElementById('passwordReset');
+
+        signUpButton.addEventListener('click', function () {
+            signInForm.style.display = "none";
+            signUpForm.style.display = "block";
+            forgotPasswordForm.style.display = "none";
+            otpVerificationForm.style.display = "none";
+            passwordResetForm.style.display = "none";
+        });
+
+        signInButton.addEventListener('click', function () {
+            signInForm.style.display = "block";
+            signUpForm.style.display = "none";
+            forgotPasswordForm.style.display = "none";
+            otpVerificationForm.style.display = "none";
+            passwordResetForm.style.display = "none";
+        });
+
+        forgotPasswordButton.addEventListener('click', function () {
+            signInForm.style.display = "none";
+            signUpForm.style.display = "none";
+            forgotPasswordForm.style.display = "block";
+            otpVerificationForm.style.display = "none";
+            passwordResetForm.style.display = "none";
+        });
+
+        document.getElementById('forgotPasswordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            forgotPasswordForm.style.display = "none";
+            otpVerificationForm.style.display = "block";
+        });
+
+        document.getElementById('otpForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            otpVerificationForm.style.display = "none";
+            passwordResetForm.style.display = "block";
+        });
+
+        document.getElementById('resetPasswordForm').addEventListener('submit', function(event) {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+            if (newPassword !== confirmNewPassword) {
+                event.preventDefault();
+                alert('Passwords do not match.');
+            } else {
+                alert('Password has been successfully reset.');
+                passwordResetForm.style.display = "none";
+                signInForm.style.display = "block";
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            const fName = document.getElementById('fName').value;
+            const lName = document.getElementById('lName').value;
+            const contact = document.getElementById('contact').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!fName || !lName || !contact || !email || !password || !confirmPassword) {
+                event.preventDefault();
+                alert('Please fill in all mandatory fields.');
+            } else if (password !== confirmPassword) {
+                event.preventDefault();
+                alert('Passwords do not match.');
+            }
+        });
+    </script>
+</body>
+</html>

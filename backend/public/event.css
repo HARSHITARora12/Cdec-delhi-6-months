@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+button.participated {
+    background-color: #ccc;  /* Gray out the button */
+    color: #666;             /* Change text color */
+    cursor: not-allowed;     /* Disable clicking */
+}
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.event {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.participate-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff; /* Initial blue button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.participate-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Black button when participated */
+.participated {
+    background-color: #333;
+    color: white;
+    cursor: not-allowed;
+}
+
+
+.event-box {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: auto; /* Allows the box to resize based on content */
+    margin-left: 0; /* Ensures the box is flush to the left */
+}
+
+.event-box img {
+    width: 70%; /* Ensures the image takes full width of the box */
+    height: 5cm; /* Sets the image height to 5cm */
+    object-fit: cover; /* Maintains the aspect ratio and fills the box */
+}
+
+.event-details {
+    padding: 10px;
+}
+
+.event-details h2 {
+    margin: 0 0 5px;
+    font-size: 1.2em;
+}
+
+.event-details p {
+    margin: 5px 0;
+    color: #555;
+}
+.event-box2 {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: auto;
+    margin-left: 0;
+}
+
+.event-box2 img {
+    width: 70%;
+    height: 5cm;
+    object-fit: cover;
+}
+.dialog-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 400px; /* Increased width */
+    padding: 30px; /* Increased padding */
+    border: 2px solid #000;
+    border-radius: 8px; /* Smooth corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better look */
+    z-index: 1000;
+  }
+  
+  .dialog-box input {
+    margin-bottom: 15px;
+    width: 100%; /* Full width inputs */
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .dialog-box button {
+    width: 100%; /* Full width button */
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .dialog-box button:hover {
+    background-color: #45a049; /* Slight hover effect */
+  }
+  
+  .participate-btn {
+    background-color: lightblue;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .participate-btn.already-participated {
+    background-color: black;
+    color: white;
+    cursor: default;
+  }
+  
+  .event {
+    margin-bottom: 20px;
+  }
+
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dialog h2 {
+    margin-top: 0;
+}
+
+.dialog button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog button:hover {
+    background-color: deepskyblue;
+}
+#categorySelect {
+    width: 100%;
+    padding: 12px;          
+    font-size: 13px;        
+    border-radius: 2px;    
+}
+
+#categorySelect option {
+    font-size: 13px;       
+    padding: 10px;       
+}
+
+  

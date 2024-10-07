@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banasthali Vidyapith Event Management</title>
+    <link rel="stylesheet" href="home_page.css">
+</head>
+<body>
+    <header>
+     
+        <h1>Your Gateway to College Events – Stay Updated, Stay Engaged!</h1>
+        <img src="banasthali.logo.png" alt="Banasthali Vidyapiith Logo">
+      </header>
+    <div class="container">
+       
+        <div class="dropdown">
+            <button class="button dropbtn">Login</button>
+            <div class="dropdown-content">
+                        <a href="login.html">student</a>
+                        <a href="admin_form.html">Admin</a>
+            </div>
+        </div>
+        <button class="button" id="contactBtn">Contact</button>
+        <button class="button" id="aboutBtn">About Us</button>
+    </div>
+
+    <div class="content" id="infoContent"></div>
+
+    <script>
+        const contactBtn = document.getElementById('contactBtn');
+        const aboutBtn = document.getElementById('aboutBtn');
+        const infoContent = document.getElementById('infoContent');
+
+        const contactInfo = `
+            <h2>Contact Us</h2>
+            <p>Banasthali Vidyapith,</p>
+            <p>P.O. Banasthali Vidyapith,</p>
+            <p>Rajasthan - 304022, India</p>
+            <p>Email: info@banasthali.in</p>
+            <p>Phone: +91-1438-228383</p>
+        `;
+
+        const aboutInfo = `
+            <h2>About Us</h2>
+            <p>Banasthali Vidyapith is a fully residential women's university offering an integrated system extending from the primary to the Ph.D. level. Banasthali Vidyapith was founded on October 6, 1935, by Pandit Hiralal Shastri and Ratan Shastri in memory of their beloved daughter Shantabai.</p>
+            <p>The Vidyapith has made substantial contributions in the field of women’s education, empowerment, and nation-building. With a campus spread over 850 acres, Banasthali Vidyapith offers a wide array of educational programs with a focus on holistic development.</p>
+        `;
+
+        contactBtn.addEventListener('mouseover', () => {
+        infoContent.innerHTML = contactInfo;
+        infoContent.style.display = 'block';
+       });
+
+      contactBtn.addEventListener('mouseout', () => {
+        infoContent.style.display = 'none';
+      });
+        aboutBtn.addEventListener('mouseover', () => {
+            infoContent.innerHTML = aboutInfo;
+            infoContent.style.display = 'block';
+        });
+        aboutBtn.addEventListener('mouseout',()=>{
+            infoContent.style.display='none';
+        });
+    </script>
+    <footer class="footer">
+        <div class="footer__addr">
+          <h1 class="footer__logo">Something</h1>
+              
+          <h2>Contact</h2>
+          
+          <address>
+            Tonk,Rajasthan;India<br>
+                
+            <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+          </address>
+        </div>
+        
+       
+        
+        <div class="legal">
+          <p>&copy; 2024 Something. All rights reserved.</p>
+          
+          <div class="legal__links">
+            <span>Made  <span class="heart">♥</span> remotely from Anywhere</span>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>

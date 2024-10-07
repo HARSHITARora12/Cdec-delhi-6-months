@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-image: url('https://s3.ap-south-1.amazonaws.com/gotouniv/cover_photo/3708/cover_photo_1500X500.jpg'); */
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+            transition: background 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .dropdown {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            margin-left: 10px; /* Space between button and dropdown */
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            width: 200px;
+            z-index: 1;
+        }
+
+        .dropdown a {
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .dropdown.active {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="header">Welcome to the Admin Dashboard</div>
+        
+        <div class="btn" id="manageEventsBtn">Manage Events
+            <div class="dropdown" id="manageEventsDropdown">
+                <a href="#add-events">Add Events</a>
+                <a href="#delete-events">Delete Events</a>
+                <a href="#update-events">Update Events</a>
+            </div>
+        </div>
+        
+        <div class="btn" id="viewParticipantsBtn">View Participants
+            <div class="dropdown" id="viewParticipantsDropdown">
+                <a href="#view-participants">View Participants</a>
+                <a href="#remove-participants">Remove Participants</a>
+                <a href="#update-participants">Update Participants</a>
+            </div>
+        </div>
+        
+        <div class="btn" id="manageClubsBtn">Manage Clubs
+            <div class="dropdown" id="manageClubsDropdown">
+                <a href="#view-clubs">View Clubs</a>
+                <a href="#add-clubs">Add Clubs</a>
+                <a href="#delete-clubs">Delete Clubs</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('manageEventsBtn').addEventListener('click', function() {
+            const dropdown = document.getElementById('manageEventsDropdown');
+            dropdown.classList.toggle('active');
+        });
+
+        document.getElementById('viewParticipantsBtn').addEventListener('click', function() {
+            const dropdown = document.getElementById('viewParticipantsDropdown');
+            dropdown.classList.toggle('active');
+        });
+
+        document.getElementById('manageClubsBtn').addEventListener('click', function() {
+            const dropdown = document.getElementById('manageClubsDropdown');
+            dropdown.classList.toggle('active');
+        });
+
+        // Close dropdowns if clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!event.target.closest('.btn')) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <link rel="stylesheet" href="event.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Events will be dynamically loaded here -->
+    </div>
+    <div id="categoryDialog" class="dialog" style="display:none;">
+        <h2 id="dialogEventName"></h2>
+        <p id="dialogEventDate"></p>
+        <p>Select a category for this event:</p>
+        <select id="categorySelect">
+            <option value="dancing">Dancing</option>
+            <option value="singing">Singing</option>
+            <option value="anchoring">Anchoring</option>
+            <option value="core_team_member">Core Team Member</option>
+            <option value="food_stall">Food Stall</option>
+        </select>
+        <button id="confirmParticipation">Participate</button>
+        <button id="closeDialog">Cancel</button>
+    </div>
+
+    <script src="events.js"></script>
+</body>
+</html>
