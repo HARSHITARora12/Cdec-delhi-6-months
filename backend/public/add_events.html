@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="add_event.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Add Event</h2>
+        <form action="#" method="POST">
+            <!-- Event Name -->
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="eventName" placeholder="Enter event name" required>
+
+            <!-- Start Date -->
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <!-- End Date -->
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" required>
+
+            <!-- Venue -->
+            <label for="venue">Venue:</label>
+            <input type="text" id="venue" name="venue" placeholder="Enter venue" required>
+
+            <!-- Time -->
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <!-- Day (automatically updated based on Start Date) -->
+            <label for="day">Day:</label>
+            <select id="day" name="day" required>
+                <option value="">Select Day</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
+
+            <!-- Open Participation -->
+            <label>Open Participation:</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="openParticipation" value="yes" required> Yes
+                </label>
+                <label>
+                    <input type="radio" name="openParticipation" value="no" required> No
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Event</button>
+        </form>
+    </div>
+    <script src="add_event.js"></script>
+</body>
+</html>

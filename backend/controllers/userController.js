@@ -5,18 +5,18 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await userModel.findUserByEmail(email); // Use model to find user by email
-     
+        const user = await userModel.findUserByEmail(email); // Find user by email
+
         if (user && bcrypt.compareSync(password, user.password)) {
-            req.session.user = { name: user.full_name, email: user.email ,phone:user.phone_number}; 
+            req.session.user = { name: user.full_name, email: user.email, phone: user.phone_number };
             console.log(req.session);
-            res.json({ status: 'success', name: user.full_name, email: user.email });
+            return res.json({ status: 'success', name: user.full_name, email: user.email });
         } else {
-            res.send('Invalid credentials');
+            return res.status(401).json({ status: 'error', message: 'Invalid credentials' });
         }
     } catch (err) {
         console.error(err);
-        res.status(500).send('Server error');
+        return res.status(500).json({ status: 'error', message: 'Server error' });
     }
 };
 
@@ -25,27 +25,27 @@ exports.register = async (req, res) => {
         fullName, studentId, email, password, age, phoneNumber, course, branch, year, gender
     } = req.body;
 
-    const hashedPassword = bcrypt.hashSync(password, 8);
+    const hashedPassword = bcrypt.hashSync(password, 8); // Hash the password
 
     try {
-        await userModel.createUser({
+        const newUser = await userModel.createUser({
             fullName,
             studentId,
             email,
-            hashedPassword,
+            password: hashedPassword, // Use the hashed password
             age,
             phoneNumber,
             course,
             branch,
             year,
             gender
-        }); // Use model to insert a new user
+        }); // Insert a new user
 
-        req.session.user = { name: fullName, email: email }; // Store user in session after registration
+        req.session.user = { name: fullName, email }; // Store user in session after registration
         console.log(req.session);
-        res.json({ status: 'success', name: fullName, email: email });
+        return res.status(201).json({ status: 'success', name: fullName, email });
     } catch (err) {
-        // console.error(err);
-        res.status(500).send('Server error');
+        console.error(err);
+        return res.status(500).json({ status: 'error', message: 'Server error' });
     }
 };

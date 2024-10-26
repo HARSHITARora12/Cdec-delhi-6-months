@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin_home_page.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="header">Welcome to the Admin Dashboard</div>
+        
+        <div class="btn" id="manageEventsBtn">Manage Events
+            <div class="dropdown" id="manageEventsDropdown">
+                <a href="add_events.html"><button type="button" class="dropdown-btn">Add Events</button></a>
+                <a href="update_events.html"><button type="button" class="dropdown-btn">Update Events</button></a>
+                <a href="delete_events.html"><button type="button" class="dropdown-btn">Delete Events</button></a>
+            </div>
+        </div>
+        
+        <div class="btn" id="viewParticipantsBtn">View Participants
+            <div class="dropdown" id="viewParticipantsDropdown">
+                <a href="#view-participants"><button type="button" class="dropdown-btn">View Participants</button></a>
+                <a href="#remove-participants"><button type="button" class="dropdown-btn">Remove Participants</button></a>
+                <a href="#update-participants"><button type="button" class="dropdown-btn">Update Participants</button></a>
+            </div>
+        </div>
+        
+        <div class="btn" id="manageClubsBtn">Manage Clubs
+            <div class="dropdown" id="manageClubsDropdown">
+                <a href="#view-clubs"><button type="button" class="dropdown-btn">View Clubs</button></a>
+                <a href="#add-clubs"><button type="button" class="dropdown-btn">Add Clubs</button></a>
+                <a href="#delete-clubs"><button type="button" class="dropdown-btn">Delete Clubs</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

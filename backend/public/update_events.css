@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+ul li span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    color: #007bff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.edit-btn:hover {
+    color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#editForm {
+    margin-top: 20px;
+}
+
+#editForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#editForm button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editForm button:hover {
+    background-color: #0056b3;
+}
+
+#editForm button[type="button"] {
+    background-color: #dc3545;
+}
+
+#editForm button[type="button"]:hover {
+    background-color: #c82333;
+}

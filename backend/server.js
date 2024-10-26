@@ -7,9 +7,10 @@ const sessionMiddleware = require('./middleware/sessionMiddleware');
 const userRoutes = require('./routes/userRoutes');
 const participantRoutes=require('./routes/particpantRoutes');
 const eventRoutes=require('./routes/eventRoutes');
+const adminRoutes=require('./routes/adminRoutes');
 const app = express();
 const port = 3000;
-
+const authRoutes=require('./routes/authRoutes')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -23,6 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', userRoutes);
 app.use('/',participantRoutes);
 app.use('/api', eventRoutes);
+app.use('/admin',adminRoutes)
+app.use('/forgot-password', authRoutes);
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
+
