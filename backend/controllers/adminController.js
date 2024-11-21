@@ -56,8 +56,13 @@ const loginAdmin = async (req, res) => {
     }
 };
 
+
+
+
+
 // Export both handlers
 module.exports = {
     registerAdmin,
     loginAdmin
+    
 };

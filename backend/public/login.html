@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    
     <div class="login-container">
         <img src="banasthali.logo.png" alt="Banasthali Vidyapith Logo">
         <h1>Banasthali Vidyapith</h1>
@@ -16,13 +15,23 @@
         <form id="loginForm">
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Password" required>
+            
+            <!-- CAPTCHA Section -->
+            <div class="captcha-container">
+                <label for="captchaInput">Enter the text below:</label>
+                <div id="captchaDisplay" class="captcha-display"></div>
+                <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+                <button type="button" id="refreshCaptcha">Refresh</button>
+            </div>
+            
             <button type="submit">Sign In</button>
             <div class="links">
-                <a href="#">Forgot Password?</a>
+                <a href="forget_password.html" class="forgot-password-link">Forgot Password?</a>
                 <a href="register.html" id="registerLink">Don't have an account? Register here</a>
             </div>
         </form>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

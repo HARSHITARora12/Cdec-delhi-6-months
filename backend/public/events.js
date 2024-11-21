@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         // Dynamically create event elements
         const container = document.querySelector('.container');
         container.innerHTML = '<h1>Upcoming Events</h1>';  // Set the heading
-
+        console.log(events);
         events.forEach((event, index) => {
             const eventDiv = document.createElement('div');
             eventDiv.classList.add('event');
@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             eventDiv.innerHTML = `
                 <h2>${event.event_name}</h2>
-                <p>Date: ${new Date(event.event_date).toLocaleDateString()}</p>
+                <p>Start Date: ${new Date(event.start_date).toLocaleDateString()}</p>
+                <p>End Date: ${new Date(event.end_date).toLocaleDateString()}</p>
                 <p>Venue: ${event.venue}</p>
                 <button class="${buttonClass}" id="btn${index + 1}" onclick="participateInEvent('${event.event_name}', 'btn${index + 1}')" ${isDisabled}>${buttonText}</button>
             `;
@@ -49,48 +50,38 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 });
 
-// When "Participate" is clicked
-// function participateInEvent(eventName, buttonId) {
-//     const eventElement = document.getElementById(buttonId).parentElement;
+// Assuming `events` is the array containing event objects and `participatedEvents` is an array with names of events the user has already participated in.
+// events.forEach((event, index) => {
+//     const eventDiv = document.createElement('div');
+//     eventDiv.classList.add('event');
+//     eventDiv.id = `event${index + 1}`;
+    
+//     // Check if the user has already participated in this event
+//     const hasParticipated = participatedEvents.includes(event.event_name);
 
-//     // Logging user info from session and event name
-//     if (window.userInfo) {
-//         console.log('Name:', window.userInfo.name);
-//         console.log('Email:', window.userInfo.email);
-//         console.log('Phone:', window.userInfo.phone);
-//     }
+//     const buttonText = hasParticipated ? 'Already Participated' : 'Participate';
+//     const buttonClass = hasParticipated ? 'participated-btn' : 'participate-btn';
+//     const isDisabled = hasParticipated ? 'disabled' : '';
 
-//     fetch('/participate', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             name: window.userInfo.name,  // Name from user info
-//             email: window.userInfo.email,  // Email from user info
-//             phone: window.userInfo.phone,  // Phone collected from prompt
-//             eventName: eventName  // Event name retrieved from the button click
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.participant) {
-//             console.log('Participation successful!', data.participant);
-//             const button = document.getElementById(buttonId);
-//             button.textContent = 'Already Participated';
-//             button.disabled = true;
-//             button.classList.add('participated');
-//             alert(`You have successfully registered for ${eventName}`);
-//         } else {
-//             alert(`Error: ${data.error}`);
-//             console.error('Error:', data.error);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error submitting participation:', error);
-//         alert('Error submitting participation. Please try again.');
-//     });
-// }
+//     // Format the date and time for display
+//     const startDate = new Date(event.start_date).toLocaleDateString();
+//     const endDate = new Date(event.end_date).toLocaleDateString();
+//     const eventTime = event.time;
+
+//     // HTML structure for each event
+//     eventDiv.innerHTML = `
+//         <h2>${event.event_name}</h2>
+//         <p>Day: ${event.day}</p>
+//         <p>Start Date: ${startDate}</p>
+//         <p>End Date: ${endDate}</p>
+//         <p>Time: ${eventTime}</p>
+//         <p>Venue: ${event.venue}</p>
+//         <p>Open Participation: ${event.open_participation}</p>
+//         <button class="${buttonClass}" id="btn${index + 1}" onclick="participateInEvent('${event.event_name}', 'btn${index + 1}')" ${isDisabled}>${buttonText}</button>
+//     `;
+//     container.appendChild(eventDiv);
+// });
+
 function participateInEvent(eventName, buttonId) {
     const eventElement = document.getElementById(buttonId).parentElement;
     const eventDate = eventElement.querySelector('p').textContent.split(': ')[1]; // Extracting date
@@ -145,4 +136,40 @@ function participateInEvent(eventName, buttonId) {
     document.getElementById('closeDialog').onclick = function() {
         document.getElementById('categoryDialog').style.display = 'none';
     };
+}
+function handleParticipate(event) {
+    const eventId = event.target.dataset.id;
+
+    if (participatedEvents.has(eventId)) {
+        alert("You have already participated in this event!");
+        return;
+    }
+
+    const eventDetails = events.find((e) => e.id == eventId);
+    document.getElementById("dialogEventName").textContent = eventDetails.name;
+    document.getElementById("dialogEventDate").textContent = `Date: ${eventDetails.date}`;
+
+    // Show dialog
+    document.getElementById("categoryDialog").style.display = "block";
+    document.getElementById("dialogOverlay").style.display = "block";
+
+    document.getElementById("confirmParticipation").dataset.id = eventId;
+}
+
+function confirmParticipation(event) {
+    const eventId = event.target.dataset.id;
+    participatedEvents.add(eventId);
+
+    // Update button state
+    const button = document.querySelector(`button[data-id='${eventId}']`);
+    button.textContent = "Already Participated";
+    button.classList.add("participated");
+    button.disabled = true;
+
+    closeDialog();
+}
+
+function closeDialog() {
+    document.getElementById("categoryDialog").style.display = "none";
+    document.getElementById("dialogOverlay").style.display = "none";
 }

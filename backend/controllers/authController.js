@@ -19,6 +19,8 @@ exports.requestOtp = async (req, res) => {
     const { email } = req.body;
 
     try {
+        console.log("hii",email);
+         
         // Check if the email exists in the database
         const result = await pool.query('SELECT * FROM admin_registration WHERE email = $1', [email]);
         const user = result.rows[0];

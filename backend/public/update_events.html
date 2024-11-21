@@ -1,49 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Events</title>
-    <link rel="stylesheet" href="update_events.css"> <!-- Link to CSS file -->
-</head>
-<body>
-    <div class="container">
-        <h2>Edit Event</h2>
-        <ul id="eventList">
-            <!-- Event items will be populated here -->
-            <li>
-                <span>Seminar on AI</span>
-                <span class="edit-btn" onclick="editEvent(1)">✏️</span>
-            </li>
-            <li>
-                <span>Workshop on Web Development</span>
-                <span class="edit-btn" onclick="editEvent(2)">✏️</span>
-            </li>
-            <li>
-                <span>Conference on Data Science</span>
-                <span class="edit-btn" onclick="editEvent(3)">✏️</span>
-            </li>
-        </ul>
-
-        <!-- Hidden Edit Form -->
-        <div id="editFormContainer" class="hidden">
-            <h3>Edit Event</h3>
-            <form id="editForm">
-                <label for="eventName">Event Name:</label>
-                <input type="text" id="eventName" name="eventName" required><br><br>
-
-                <label for="eventTime">Event Time:</label>
-                <input type="text" id="eventTime" name="eventTime" required><br><br>
-
-                <label for="eventVenue">Event Venue:</label>
-                <input type="text" id="eventVenue" name="eventVenue" required><br><br>
-
-                <button type="submit">Save Changes</button>
-                <button type="button" onclick="cancelEdit()">Cancel</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="update_events.js"></script> <!-- Link to JavaScript file -->
-</body>
-</html>
+<!-- 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Edit Events</title>
+     <link rel="stylesheet" href="update_events.css">  Link to CSS file -->
+ <!-- </head>
+ <body>
+     <div class="container">
+         <h2>Edit Event</h2>
+         <ul id="eventList">
+             Event items will be dynamically populated here
+         //<</ul> -->
+     <!-- </div> -->
+ 
+     <!-- Dialog Overlay and Edit Form -->
+     <!-- <div id="dialogOverlay" class="dialog-overlay" style="display:none;">
+         <div id="editDialog" class="dialog-box">
+             <h3>Edit Event</h3>
+             <form id="editForm">
+                 <label for="eventName">Event Name:</label>
+                 <input type="text" id="eventName" name="eventName" required><br><br>
+ 
+                 <label for="eventTime">Event Time:</label>
+                 <input type="text" id="eventTime" name="eventTime" required><br><br>
+ 
+                 <label for="eventVenue">Event Venue:</label>
+                 <input type="text" id="eventVenue" name="eventVenue" required><br><br>
+ 
+                 <label for="startDate">Start Date:</label>
+                 <input type="date" id="startDate" name="startDate" required><br><br> -->
+ 
+                 <!-- <label for="endDate">End Date:</label>
+                 <input type="date" id="endDate" name="endDate" required><br><br>
+ 
+                 <button type="submit">Save Changes</button>
+                 <button type="button" onclick="cancelEdit()">Cancel</button>
+             </form>
+         </div>
+     </div> -->
+<!--  
+     <script src="update_events.js"></script> 
+ </html> -->
+  --> -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Edit Events</title>
+      <link rel="stylesheet" href="update_events.css"> <!-- Link to CSS file -->
+  </head>
+  <body>
+      <div class="container">
+          <h2>Edit Event</h2>
+          <ul id="eventList">
+              <!-- Event items will be dynamically populated here -->
+          </ul>
+      </div>
+  
+      <!-- Dialog Overlay and Edit Form -->
+      <div id="dialogOverlay" class="dialog-overlay" style="display:none;">
+          <div id="editDialog" class="dialog-box">
+              <h3>Edit Event</h3>
+              <form id="editForm">
+                  <label for="eventName">Event Name:</label>
+                  <input type="text" id="eventName" name="eventName" required><br><br>
+  
+                  <label for="eventTime">Event Time:</label>
+                  <input type="text" id="eventTime" name="eventTime" required><br><br>
+  
+                  <label for="eventVenue">Event Venue:</label>
+                  <input type="text" id="eventVenue" name="eventVenue" required><br><br>
+  
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" id="startDate" name="startDate" required><br><br>
+  
+                  <label for="endDate">End Date:</label>
+                  <input type="date" id="endDate" name="endDate" required><br><br>
+  
+                  <button type="submit">Save Changes</button>
+                  <button type="button" onclick="cancelEdit()">Cancel</button>
+              </form>
+          </div>
+      </div>
+  
+      <script src="update_events.js"></script> <!-- Link to JavaScript file -->
+  </body>
+  </html>
+  

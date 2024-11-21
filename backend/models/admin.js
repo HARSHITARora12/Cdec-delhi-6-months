@@ -39,6 +39,11 @@ const findAdminByEmail = async (email) => {
    
 };
 
+// Initialize the clubs table
+
+
+module.exports = pool;
+
 module.exports = {
     addAdmin,
     findAdminByEmail,

@@ -3,6 +3,10 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
+    background-image: url('add_events.bg.png'); /* Replace 'background.jpg' with your image file name */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 .container {
     width: 100%;

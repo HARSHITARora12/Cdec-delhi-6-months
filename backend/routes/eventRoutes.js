@@ -7,4 +7,9 @@ const router = express.Router();
 router.get('/events', eventController.getAllEvents);
 // routes/eventRoutes.js
 router.post('/createEvents', eventController.createEvent);
+router.get('/events/:id', eventController.getEventById); 
+        // GET /api/events/:id
+router.put('/events/:id', eventController.updateEvent);
+router.delete('/events/:id', eventController.deleteEvent);
+
 module.exports = router;

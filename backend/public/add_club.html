@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="add_club.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Add Club</h2>
+        <!-- Updated form with additional fields for name, description, and eligibility -->
+        <form action="#" method="POST">
+            <!-- Club Name -->
+            <label for="name">Club Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter club name" required>
+
+            <!-- Club Description -->
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Enter club description"  required></textarea>
+
+            <!-- Club Eligibility -->
+            <label for="eligibility">Eligibility:</label>
+            <textarea id="eligibility" name="eligibility" placeholder="Enter eligibility criteria" ></textarea>
+
+            <!-- Submit Button (move this inside the form) -->
+            <button type="submit">Add Club</button>
+        </form>
+    </div>
+    
+    <script src="add_club.js"></script>
+</body>
+</html>

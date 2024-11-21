@@ -11,6 +11,7 @@ const adminRoutes=require('./routes/adminRoutes');
 const app = express();
 const port = 3000;
 const authRoutes=require('./routes/authRoutes')
+const clubRoutes=require('./routes/clubRoutes');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -26,6 +27,11 @@ app.use('/',participantRoutes);
 app.use('/api', eventRoutes);
 app.use('/admin',adminRoutes)
 app.use('/forgot-password', authRoutes);
+
+
+
+
+app.use('/club',clubRoutes);
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

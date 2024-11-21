@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Clubs</title>
+    <link rel="stylesheet" href="update_clubs.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Update Clubs</h2>
+        <ul id="clubList">
+            <!-- Dynamic club list will be populated here -->
+        </ul>
+    </div>
+
+    <!-- Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Club</h3>
+            <label for="clubName">Club Name:</label>
+            <input type="text" id="clubName" placeholder="Enter new club name">
+            
+            <label for="clubDescription">Description:</label>
+            <textarea id="clubDescription" placeholder="Enter new description"></textarea>
+            
+            <label for="clubEligibility">Eligibility:</label>
+            <input type="text" id="clubEligibility" placeholder="Enter new eligibility">
+            
+            <div class="modal-actions">
+                <button id="updateBtn">Update Club</button>
+                <button id="cancelBtn" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="update_clubs.js"></script>
+</body>
+</html>

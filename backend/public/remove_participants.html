@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Participants</title>
+    <link rel="stylesheet" href="remove_participants.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Remove Participants</h2>
+        <ul id="participantList">
+            <!-- The participants list will be dynamically populated here -->
+        </ul>
+    </div>
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditModal()">&times;</span>
+            <h3>Edit Participant</h3>
+            <form id="editForm">
+                <label for="editName">Name:</label>
+                <input type="text" id="editName" name="name" required>
+                
+                <label for="editCategory">Event Category:</label>
+                <input type="text" id="editCategory" name="event_category" required>
+                
+                <button type="button" onclick="saveParticipantChanges()">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+    </div>
+    <!-- Link to external JavaScript file -->
+    <script src="remove_participants.js"></script>
+</body>
+</html>

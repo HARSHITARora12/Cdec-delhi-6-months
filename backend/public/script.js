@@ -47,4 +47,44 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 //         window.location.href = 'register.html';
 //     });
 // });
+document.addEventListener("DOMContentLoaded", () => {
+    const captchaDisplay = document.getElementById("captchaDisplay");
+    const captchaInput = document.getElementById("captchaInput");
+    const refreshCaptcha = document.getElementById("refreshCaptcha");
+    const loginForm = document.getElementById("loginForm");
+
+    // Function to generate random CAPTCHA
+    function generateCaptcha() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let captcha = "";
+        for (let i = 0; i < 6; i++) {
+            captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return captcha;
+    }
+
+    // Function to refresh and display a new CAPTCHA
+    function refreshCaptchaDisplay() {
+        const captcha = generateCaptcha();
+        captchaDisplay.textContent = captcha;
+    }
+
+    // Event listener to refresh CAPTCHA
+    refreshCaptcha.addEventListener("click", refreshCaptchaDisplay);
+
+    // Form submission with CAPTCHA validation
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent form submission for validation
+        if (captchaInput.value !== captchaDisplay.textContent) {
+            alert("Incorrect CAPTCHA. Please try again.");
+            refreshCaptchaDisplay();
+        } else {
+            alert("Login successful!");
+            // Proceed with form submission logic
+        }
+    });
+
+    // Initialize CAPTCHA on page load
+    refreshCaptchaDisplay();
+});
 

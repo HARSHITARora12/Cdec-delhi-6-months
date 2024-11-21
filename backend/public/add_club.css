@@ -1,0 +1,95 @@
+/* Base font styling for body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    background-image: url('add_events.bg.png'); /* Replace with your background image */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    max-width: 800px; /* Adjusted for wider content */
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for a modern look */
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+}
+
+/* Label styling */
+label {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+    font-family: inherit;
+}
+
+/* Input and Textarea styling */
+/* Base styles for inputs and textareas */
+input, textarea {
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in total width */
+    font-family: 'Arial', sans-serif; /* Same font for all */
+    background-color: #fff; /* Consistent background */
+    color: #333; /* Consistent text color */
+    resize: none; /* Prevent resizing for textareas */
+}
+
+/* Specific styling for textareas */
+textarea {
+    height: 40px; /* Set to match input's height */
+    line-height: normal; /* Ensure text alignment matches input */
+    overflow: hidden; /* Prevent unexpected overflow */
+}
+
+/* Add focus styles for consistency */
+input:focus, textarea:focus {
+    outline: none; /* Remove default outline */
+    border-color: #007bff; /* Add focus border color */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add focus shadow */
+}
+
+
+/* Button styling */
+button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: inherit;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}

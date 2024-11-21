@@ -6,14 +6,17 @@
     <title>Upcoming Events</title>
     <link rel="stylesheet" href="event.css">
 </head>
-
 <body>
     <div class="container">
-        <!-- Events will be dynamically loaded here -->
+        <h1>Upcoming Events</h1>
+        <!-- Events dynamically added here -->
+        <div id="eventsContainer"></div>
     </div>
-    <div id="categoryDialog" class="dialog" style="display:none;">
-        <h2 id="dialogEventName"></h2>
-        <p id="dialogEventDate"></p>
+
+    <!-- Modal Dialog for Participation -->
+    <div id="categoryDialog" class="dialog-box">
+        <h2 id="dialogEventName">Event Name</h2>
+        <p id="dialogEventDate">Event Date</p>
         <p>Select a category for this event:</p>
         <select id="categorySelect">
             <option value="dancing">Dancing</option>
@@ -25,6 +28,7 @@
         <button id="confirmParticipation">Participate</button>
         <button id="closeDialog">Cancel</button>
     </div>
+    <div id="dialogOverlay" class="dialog-overlay"></div>
 
     <script src="events.js"></script>
 </body>
